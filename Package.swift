@@ -21,7 +21,7 @@ let package = Package(
         .target(
             name: "KountDataCollectorPackage",
             dependencies: [],
-            publicHeadersPath: "./Sources/KountDataCollector.xcframework/PublicHeaders"),
+            publicHeadersPath: "include"),
         .testTarget(
             name: "KountDataCollectorPackageTests",
             dependencies: ["KountDataCollectorPackage"]),
