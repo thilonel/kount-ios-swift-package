@@ -9,7 +9,8 @@ let package = Package(
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
             name: "KountDataCollectorPackage",
-            targets: ["KountDataCollectorPackage", "KountDataCollector"]),
+            targets: ["KountDataCollectorPackage"]
+        )
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -20,11 +21,15 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "KountDataCollectorPackage",
-            dependencies: [],
-            publicHeadersPath: "include"),
+            dependencies: ["KountIosFramework"]
+        ),
         .testTarget(
             name: "KountDataCollectorPackageTests",
-            dependencies: ["KountDataCollectorPackage"]),
-        .binaryTarget(name: "KountDataCollector", path: "./Sources/KountDataCollector.xcframework"),
+            dependencies: ["KountDataCollectorPackage"]
+        ),
+        .binaryTarget(
+            name: "KountIosFramework",
+            path: "./Sources/KountIosFramework.xcframework"
+        ),
     ]
 )
